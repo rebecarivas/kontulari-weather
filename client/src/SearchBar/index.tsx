@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {ReactSearchAutocomplete} from 'react-search-autocomplete';
 import api from '../services/api';
 import list from '../list';
+import HeadCard from '../components/HeadCard';
 import { IList, IWeatherData } from '../types';
 import Loading from '../../images/loading.gif'
 
@@ -38,6 +39,12 @@ const SearchBar: React.FC = () => {
             onSelect={HandleOnSelect}
             autofocus
             placeholder="Enter a city name"
+            />
+            <HeadCard 
+                title={weatherData?.title}
+                time={weatherData?.time.substring(11,19)}
+                sun_rise={`Sunrise: ${weatherData?.sun_rise.substring(11,19)}`}
+                sun_set={`Sunset: ${weatherData?.sun_set.substring(11,19)}`}
             />
          </>
     )}
