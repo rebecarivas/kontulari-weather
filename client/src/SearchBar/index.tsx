@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import {ReactSearchAutocomplete} from 'react-search-autocomplete';
-import api from '../../services/api';
-import list from '../../list';
+import api from '../services/api';
+import list from '../list';
+import { IList, IWeatherData } from '../types';
+import Loading from '../../images/loading.gif'
+
 
 const SearchBar: React.FC = () => {
     const [cities, setCities] = useState([{}]);
@@ -21,6 +24,10 @@ const SearchBar: React.FC = () => {
         .then(response => setWeatherData(response.data))
         .catch(error => console.log("error"))
         .finally(() => {setTimeout(() => {setIsLoad(false)}, 2000)})
+    }
+
+    if(isLoad){
+        return <img src={Loading} alt='load'/>
     }
 
     return(
