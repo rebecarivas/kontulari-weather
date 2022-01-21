@@ -4,8 +4,9 @@ import api from '../services/api';
 import list from '../list';
 import HeadCard from '../components/HeadCard';
 import CardComponent from '../components/CardComponent';
+import RenderIcon from '../components/RenderIcon';
 import { IList, IWeatherData } from '../types';
-import Loading from '../../images/loading.gif'
+import Loading from '../images/loading.gif'
 
 
 const SearchBar: React.FC = () => {
@@ -57,7 +58,12 @@ const SearchBar: React.FC = () => {
                     min_temp={`Min: ${item.min_temp!.toFixed(1)}°C`}
                     humidity={`Humidity: ${item.humidity}%`}
                     predictability={`Predictability: ${item.predictability}%`}
-                />
+                >
+                        <RenderIcon
+                        weather_state_name={item.weather_state_name}
+                    />
+                </CardComponent>    
+
             ))}    
         </>
     )}
