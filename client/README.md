@@ -1,10 +1,14 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application uses the TypeScript that consumes API available in the `server` subdirectory of this repository. The objective of this application is to show the user the weather forecast for several locations.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+## `npm install`
+
+Install all the dependences of the application
 
 ### `npm start`
 
@@ -39,8 +43,3 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

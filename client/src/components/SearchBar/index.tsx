@@ -17,7 +17,6 @@ const LoadSection = styled.div`
     justify-content: center;
 `
 
-
 const SearchBar: React.FC = () => {
     const [cities, setCities] = useState([{}]);
     const [weatherData, setWeatherData] = useState<IWeatherData>();
