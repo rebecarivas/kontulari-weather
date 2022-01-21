@@ -11,11 +11,7 @@ import Loading from '../../images/loading.gif';
 const Wrapper = styled.div`
     align-itens: center
 `
-// const Section =styled.section`
-//     display: flex;
-//     justify-content: center;
-    
-// `
+
 const LoadSection = styled.div`
     display: flex;
     justify-content: center;
@@ -53,7 +49,6 @@ const SearchBar: React.FC = () => {
 
     return(
         <Wrapper>
-           {/* <Section>  */}
                 <ReactSearchAutocomplete 
                     items={cities}
                     onSearch={handleOnSearch}
@@ -61,7 +56,6 @@ const SearchBar: React.FC = () => {
                     autofocus
                     placeholder="Enter a city name"
                 />
-            {/* </Section> */}
             {   isNotLoad
                 &&
                 <HeadCard 
