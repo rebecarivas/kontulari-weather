@@ -6,7 +6,7 @@ This application uses the TypeScript that consumes API available in the `server`
 
 In the project directory, you can run:
 
-## `npm install`
+### `npm install`
 
 Install all the dependences of the application
 
