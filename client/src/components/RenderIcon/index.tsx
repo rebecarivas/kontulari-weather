@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React from 'react';
 import {WiCloud, WiShowers, WiHail, WiDayCloudy, WiRainMix,  WiCloudy, WiDaySunny, WiRain, WiSleet, WiSnow, WiThunderstorm } from 'react-icons/wi';
 import { IconContext } from 'react-icons';
 import { IRenderIcon } from '../../types';
@@ -33,7 +33,7 @@ const RenderIcon:React.FC<IRenderIcon> = ({weather_state_name}) =>{
     }
     
     return(
-    <IconContext.Provider value={{ color: "#ffffff", size: "4rem" }}>
+    <IconContext.Provider value={{ color: `${props => props.theme.colors.text}`, size: "4rem" }}>
         <div>
             <WeatherIcon />
         </div>

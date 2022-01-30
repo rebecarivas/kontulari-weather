@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {ReactSearchAutocomplete} from 'react-search-autocomplete';
-import styled from 'styled-components';
+import styled, {ThemeContext} from 'styled-components';
 import api from '../../services/api';
 import list from '../../list';
 import { IList, IWeatherData } from '../../types';
@@ -8,7 +8,7 @@ import Loading from '../../images/loading.gif';
 
 const Wrapper = styled.div`
     align-items: center;
-    background-color: var(--blue);
+    background-color: ${props => props.theme.colors.background};
     width: 100%;
     padding-bottom: 10px;
 `
@@ -35,6 +35,7 @@ interface ISearchBar{
 
 const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar) => {
     const [cities, setCities] = useState([{}]);
+    const {colors} = useContext(ThemeContext)
 
     const handleOnSearch = (input: string) =>{
         const subList: IList[] = list.filter((city) => {
@@ -69,9 +70,9 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
                     autofocus
                     placeholder="Enter a city name"
                     styling={{
-                             backgroundColor: "#1a3b51",
+                             backgroundColor: `${props => props.theme.colors.searchBackground}`,
                              border: "1px solid #1a3b51",
-                             color: "#bec6cf",
+                             color: '#bec6cf',
                              fontWeight: "normal",
                            }}
                 />

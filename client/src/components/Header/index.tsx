@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: var(--blue);
+    background-color: ${props => props.theme.colors.background};
     /* min-height: 20vh; */
     width: 100%;
     img{

@@ -29,11 +29,11 @@ export const GlobalStyle = createGlobalStyle`
     h1, h2, h3, h4, h5 {
         font-family: Source Sans Pro, sans-serif;
         font-weight: bold;
-        color: #ffffff;
+        color: ${props => props.theme.colors.text};
     }
     p, div {
         font-family: Source Sans Pro, sans-serif;
-        color: #ffffff;
+        color: ${props => props.theme.colors.text};
     }
 
 `

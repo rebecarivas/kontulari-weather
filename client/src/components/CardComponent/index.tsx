@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--blue1);
+    background-color: ${props => props.theme.colors.cardBackground};
     border-radius: 5px;
     padding: 10px;
     
