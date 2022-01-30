@@ -8,13 +8,19 @@ import Loading from '../../images/loading.gif';
 
 const Wrapper = styled.div`
     align-items: center;
+    background-color: var(--blue);
+    width: 100%;
+    padding-bottom: 10px;
 `
  const SearchBarContainer = styled.div`
-    width: 500px;
-    /* min-height: 10vh; */
+    width: 50%;
     display: block;
     margin: 0 auto;
+    @media screen and (max-width: 600px){
+        width: 80%;
+    }
  `
+ 
  const LoadSection = styled.div`
  display: flex;
  justify-content: center;
@@ -53,7 +59,6 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
         return <LoadSection><img src={Loading} alt='load'/></LoadSection>
     }
     
-
     return(
         <Wrapper>
             <SearchBarContainer>
@@ -63,6 +68,12 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
                     onSelect={HandleOnSelect}
                     autofocus
                     placeholder="Enter a city name"
+                    styling={{
+                             backgroundColor: "#1a3b51",
+                             border: "1px solid #1a3b51",
+                             color: "#bec6cf",
+                             fontWeight: "normal",
+                           }}
                 />
             </SearchBarContainer>
         </Wrapper>

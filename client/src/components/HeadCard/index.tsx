@@ -1,46 +1,40 @@
 import React from 'react';
 import { IHeadCard } from '../../types';
-import { Box, Card, Typography} from '@mui/material';
 import {WiSunrise, WiSunset } from 'react-icons/wi';
 import { IconContext } from 'react-icons';
 import styled from 'styled-components';
 
-const Container = styled.div`
-    /* min-height: 20vh; */
+const Wrapper = styled.div`
+    background-color: var(--green);
+    width: 300px;
+    margin-left: 50px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media screen and (max-width: 600px){
+        margin-bottom: 20px;
+        
+    }
+
+    div{
+        color: var(--preto);
+        font-size: 20px;
+    }
 `
 
 const HeadCard: React.FC<IHeadCard> = ({title, time, sun_rise, sun_set}) => {
     return(
-        <Container>
-            <Box sx={{display: 'flex', justifyContent: 'center', margin: 5 }}>
-                <Card sx={{padding: 2, backgroundColor: '#f4f1de', borderRadius: 3, maxWidth: 300}}>
-                    <Typography sx={{fontFamily:['Roboto', 'sans-serif']}}>    
-                        <Box sx={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
-                            <Typography sx={{fontSize: 25, fontWeight: 'bold'}}>
-                                {title},
-                            </Typography>
-                            <Typography sx={{fontSize: 15 }}>
-                                {time}
-                            </Typography>
-                        </Box>
-                        <IconContext.Provider value={{ color: "#000", size: "3rem" }}>
-                        <Box sx={{display: 'flex', alignItems: 'baseline', justifyContent: 'space-between'}}>
-                            <WiSunrise />
-                            <Typography>
-                                {sun_rise}
-                            </Typography>
-                        </Box>
-                        <Box sx={{display: 'flex', alignItems: 'baseline', justifyContent: 'center'}}>
-                            <WiSunset />
-                            <Typography>
-                                {sun_set}
-                            </Typography>
-                        </Box>
-                        </IconContext.Provider>   
-                    </Typography>
-                </Card>
-            </Box>
-        </Container>
+        <Wrapper>
+            <div style={{fontWeight: 'bold', fontSize: 30}}>{title}</div>
+            <div style={{fontWeight: 'bold', fontSize: 20}}>{time}</div>
+            <IconContext.Provider value={{ color: "#000", size: "3rem" }}>
+                <div><WiSunrise /></div>
+                    <div>{sun_rise}</div>
+                <div><WiSunset /></div>
+                    <div>{sun_set}</div>
+            </IconContext.Provider>   
+        </Wrapper>
     )
 }
 export default HeadCard;

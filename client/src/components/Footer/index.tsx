@@ -1,22 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
+import FooterLogo from '../../images/footerKontulari.png'
 
 const Wrapper = styled.div`
     text-align: center;
-    border-top: 0.4px solid #000000;  
-    margin-top: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #0d303d;
-    color: #f4f1de;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: auto;
+    background-color: var(--blue);
     width: 100%;
-    min-height: 8.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* min-height: 8.5vh; */
+    div{
+      width: 70%;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    img{
+      width: 150px;
+      @media screen and (max-width: 600px){
+        width: 100px;
+    }
+    }
     
 `
 const Footer: React.FC = () => {
     return (
       <Wrapper> 
-        <h3>Copyright© 2022 - Weather Forecast</h3>
+        <div>
+          <img src={FooterLogo} alt="logo kontulari"/>
+          <h4>Dark mode</h4>
+        </div>
       </Wrapper> 
     )
 }

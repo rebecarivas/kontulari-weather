@@ -33,7 +33,7 @@ const RenderIcon:React.FC<IRenderIcon> = ({weather_state_name}) =>{
     }
     
     return(
-    <IconContext.Provider value={{ color: "#000", size: "7rem" }}>
+    <IconContext.Provider value={{ color: "#ffffff", size: "4rem" }}>
         <div>
             <WeatherIcon />
         </div>

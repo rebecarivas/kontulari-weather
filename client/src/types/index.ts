@@ -31,7 +31,6 @@ export interface IWeatherData{
         weather_state_name?: string;
         predictability?: number;
     }];
-    source?: [{}];
     sun_rise: string;
     sun_set: string;
     time: string;
