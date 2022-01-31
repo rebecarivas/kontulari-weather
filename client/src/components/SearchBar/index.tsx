@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import {ReactSearchAutocomplete} from 'react-search-autocomplete';
 import styled, {ThemeContext} from 'styled-components';
 import api from '../../services/api';
@@ -37,6 +37,19 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
     const [cities, setCities] = useState([{}]);
     const {colors} = useContext(ThemeContext)
 
+    useEffect(() => {
+        setIsLoad(true)
+          api
+          .get("?location=Salvador")
+          .then(response => setWeatherData(response.data))
+          .catch(error => console.log(error))
+          .finally(() => {
+            setIsLoad(false)
+            setIsNotLoad(true)
+          })
+      }, [])
+    
+
     const handleOnSearch = (input: string) =>{
         const subList: IList[] = list.filter((city) => {
             return city.name.toLowerCase().includes(input.toLowerCase())
@@ -57,6 +70,7 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
     }
 
     if(isLoad){
+        setIsNotLoad(false)
         return <LoadSection><img src={Loading} alt='load'/></LoadSection>
     }
     
@@ -70,7 +84,7 @@ const SearchBar = ({isLoad, setIsLoad, setIsNotLoad, setWeatherData}: ISearchBar
                     autofocus
                     placeholder="Enter a city name"
                     styling={{
-                             backgroundColor: `${props => props.theme.colors.searchBackground}`,
+                             backgroundColor: `${(props: { theme: { colors: { searchBackground: any; }; }; }) => props.theme.colors.searchBackground}`,
                              border: "1px solid #1a3b51",
                              color: '#bec6cf',
                              fontWeight: "normal",

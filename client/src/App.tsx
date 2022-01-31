@@ -10,8 +10,8 @@ import dark from './style/themes/dark';
 import light from './style/themes/light';
 import styled, {ThemeProvider, DefaultTheme} from 'styled-components';
 import { IWeatherData } from './types';
-import api from './services/api';
-import Loading from '../src/images/loading.gif';
+// import api from './services/api';
+// import Loading from '../src/images/loading.gif';
 
 
 const Container = styled.div`
@@ -27,12 +27,7 @@ const Container = styled.div`
   div{
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
-    /* @media screen and (max-width: 600px){
-      flex-direction: column;
-      justify-content: center;
-    } */
-   
+    flex-wrap: wrap;   
   }
 `
 
@@ -45,38 +40,6 @@ function App() {
   const toggleTheme = () => {
       setTheme(theme.title === 'dark' ? light : dark)
   };
-
-  // useEffect(() => {
-  //   const localTheme = localStorage.getItem("theme");
-  //   localTheme && setTheme(localTheme);
-  // }, []);
-
-//   useEffect(() => {
-//     setIsLoad(true)
-//     if (Object.keys(weatherData!).length === 0){
-//       api
-//       .get('?location=Salvador')
-//       .then(response => setWeatherData(response.data))
-//       .catch(error => console.log(error))
-//       .finally(() => setIsLoad(false))
-//     }
-//   }, [weatherData])
-
-// if (Object.keys(weatherData!).length === 0){
-//   return {weatherData.consolidated_weather.map(item => (       
-//     <CardComponent 
-//         key={item.id}
-//         applicable_date={new Date(item.applicable_date!).toDateString()}
-//         the_temp={`${item.the_temp!.toFixed(1)}°C`}
-//         weather_state_name={item.weather_state_name}
-//         max_temp={`Max: ${item.max_temp!.toFixed(1)}°C`}
-//         min_temp={`Min: ${item.min_temp!.toFixed(1)}°C`}
-//         humidity={`Humidity: ${item.humidity}%`}
-//         predictability={`Predictability: ${item.predictability}%`}
-//     />  
-
-// ))}     }
-//   }
     
   return (
     <> 
@@ -94,20 +57,23 @@ function App() {
                    sun_set={weatherData?.sun_set.substring(11,19)}
                />
            }
-           <div>
-                   {weatherData?.consolidated_weather.map(item => (       
-                       <CardComponent 
-                           key={item.id}
-                           applicable_date={new Date(item.applicable_date!).toDateString()}
-                           the_temp={`${item.the_temp!.toFixed(1)}°C`}
-                           weather_state_name={item.weather_state_name}
-                           max_temp={`Max: ${item.max_temp!.toFixed(1)}°C`}
-                           min_temp={`Min: ${item.min_temp!.toFixed(1)}°C`}
-                           humidity={`Humidity: ${item.humidity}%`}
-                           predictability={`Predictability: ${item.predictability}%`}
-                       />  
-                   ))}  
-            </div> 
+          {isNotLoad
+            && 
+              <div>
+                {weatherData?.consolidated_weather.map(item => (       
+                    <CardComponent 
+                        key={item.id}
+                        applicable_date={new Date(item.applicable_date!).toDateString()}
+                        the_temp={`${item.the_temp!.toFixed(1)}°C`}
+                        weather_state_name={item.weather_state_name}
+                        max_temp={`Max: ${item.max_temp!.toFixed(1)}°C`}
+                        min_temp={`Min: ${item.min_temp!.toFixed(1)}°C`}
+                        humidity={`Humidity: ${item.humidity}%`}
+                        predictability={`Predictability: ${item.predictability}%`}
+                    />  
+                ))}  
+              </div> 
+          }
         </Container> 
         <Footer toggleTheme={toggleTheme}/>
       </ThemeProvider>

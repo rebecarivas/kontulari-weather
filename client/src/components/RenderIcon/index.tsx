@@ -33,7 +33,7 @@ const RenderIcon:React.FC<IRenderIcon> = ({weather_state_name}) =>{
     }
     
     return(
-    <IconContext.Provider value={{ color: `${props => props.theme.colors.text}`, size: "4rem" }}>
+    <IconContext.Provider value={{ color: `${(props: { theme: { colors: { text: any; }; }; }) => props.theme.colors.text}`, size: "4rem" }}>
         <div>
             <WeatherIcon />
         </div>
