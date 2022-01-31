@@ -52,14 +52,14 @@ const Wrapper = styled.div`
         width: 20px;
         height: 20px;
         border-radius: 1rem;
-        background-color: var(--gray1);
+        background-color: var(--blue);
         left: 0;
         cursor: pointer;
         transition: 0.2s;
       }
       input:checked + span {
         left: 50%;
-        background-color: var(--blue)
+        background-color: var(--gray1)
       }
 `
 
