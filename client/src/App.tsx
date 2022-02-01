@@ -45,7 +45,7 @@ function App() {
     <> 
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Header />
+        <Header toggleTheme={toggleTheme}/>
         <SearchBar isLoad={isLoad} setIsLoad={setIsLoad} setIsNotLoad={setIsNotLoad} setWeatherData={setWeatherData}/>
         <Container>
            {isNotLoad
@@ -75,7 +75,7 @@ function App() {
               </div> 
           }
         </Container> 
-        <Footer toggleTheme={toggleTheme}/>
+        <Footer />
       </ThemeProvider>
     </>
   );
