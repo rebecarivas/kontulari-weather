@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import { ICard } from '../../types';
 import styled from 'styled-components';
 import RenderIcon from '../RenderIcon';
-// import { IWeatherData } from '../../types';
 
 const Wrapper = styled.div`
     display: flex;
@@ -11,14 +9,11 @@ const Wrapper = styled.div`
     background-color: ${props => props.theme.colors.cardBackground};
     border-radius: 5px;
     padding: 10px;
-    
     width: 300px;
     margin-bottom: 20px;
-    /* min-height: 27vh; */
 `
 
 const CardComponent: React.FC<ICard> = ({ max_temp, min_temp, the_temp, humidity, predictability, applicable_date, weather_state_name}) => {
-    /* const [weatherData] = useState<IWeatherData>(weatherData) */
  
     return (
         <Wrapper>
